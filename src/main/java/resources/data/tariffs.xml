@@ -3,7 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://www.javacourse.by/tariff  tariffsSchema.xsd ">
 
-    <mobileTariff id="tariff001" available="false">
+    <phoneTariff id="tariff001" available="false">
         <name>Super</name>
         <operator>MTS</operator>
         <payroll>10.25</payroll>
@@ -16,9 +16,9 @@
             <roamingCallPrice>1.0</roamingCallPrice>
         </callPrice>
         <smsPrice>0.1</smsPrice>
-    </mobileTariff>
+    </phoneTariff>
 
-    <mobileTariff id="tariff002">
+    <phoneTariff id="tariff002">
         <name>Alpha</name>
         <operator>A1</operator>
         <payroll>19.85</payroll>
@@ -31,9 +31,9 @@
             <roamingCallPrice>0.75</roamingCallPrice>
         </callPrice>
         <smsPrice>0.05</smsPrice>
-    </mobileTariff>
+    </phoneTariff>
 
-    <homeTariff id="tariff003">
+    <internetTariff id="tariff003">
         <name>Ultra</name>
         <operator>LIFE</operator>
         <payroll>25.15</payroll>
@@ -43,9 +43,9 @@
         </parameters>
         <downloadSpeed>50</downloadSpeed>
         <uploadSpeed>65.5</uploadSpeed>
-    </homeTariff>
+    </internetTariff>
 
-    <homeTariff id="tariff004">
+    <internetTariff id="tariff004">
         <name>Light</name>
         <operator>MTS</operator>
         <payroll>11.95</payroll>
@@ -55,6 +55,6 @@
         </parameters>
         <downloadSpeed>30</downloadSpeed>
         <uploadSpeed>30</uploadSpeed>
-    </homeTariff>
+    </internetTariff>
 
 </tariffs>

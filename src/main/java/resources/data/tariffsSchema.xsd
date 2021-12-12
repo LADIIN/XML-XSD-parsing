@@ -5,8 +5,8 @@
         elementFormDefault="qualified">
 
     <element name="tariff" type="c:tariff" abstract="true"/>
-    <element name="mobileTariff" type="c:phoneTariff" substitutionGroup="c:tariff"/>
-    <element name="homeTariff" type="c:internetTariff" substitutionGroup="c:tariff"/>
+    <element name="phoneTariff" type="c:phoneTariff" substitutionGroup="c:tariff"/>
+    <element name="internetTariff" type="c:internetTariff" substitutionGroup="c:tariff"/>
 
     <element name="tariffs">
         <complexType>
