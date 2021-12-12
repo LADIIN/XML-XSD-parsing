@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<tariffs xmlns="http://www.javacourse.by/tariff"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.javacourse.by/tariff  tariffsSchema.xsd ">
+
+    <mobileTariff id="tariff001" available="false">
+        <name>Super</name>
+        <operator>MTS</operator>
+        <payroll>10.25</payroll>
+        <parameters>
+            <tariffication>1 minute</tariffication>
+            <connectionPrice>0.0</connectionPrice>
+        </parameters>
+        <callPrice>
+            <networkCallPrice>0.75</networkCallPrice>
+            <roamingCallPrice>1.0</roamingCallPrice>
+        </callPrice>
+        <smsPrice>0.1</smsPrice>
+    </mobileTariff>
+
+    <mobileTariff id="tariff002">
+        <name>Alpha</name>
+        <operator>A1</operator>
+        <payroll>19.85</payroll>
+        <parameters>
+            <tariffication>12 seconds</tariffication>
+            <connectionPrice>0.0</connectionPrice>
+        </parameters>
+        <callPrice>
+            <networkCallPrice>0.5</networkCallPrice>
+            <roamingCallPrice>0.75</roamingCallPrice>
+        </callPrice>
+        <smsPrice>0.05</smsPrice>
+    </mobileTariff>
+
+    <homeTariff id="tariff003">
+        <name>Ultra</name>
+        <operator>LIFE</operator>
+        <payroll>25.15</payroll>
+        <parameters>
+            <tariffication>1 hour</tariffication>
+            <connectionPrice>0.0</connectionPrice>
+        </parameters>
+        <downloadSpeed>50</downloadSpeed>
+        <uploadSpeed>65.5</uploadSpeed>
+    </homeTariff>
+
+    <homeTariff id="tariff004">
+        <name>Light</name>
+        <operator>MTS</operator>
+        <payroll>11.95</payroll>
+        <parameters>
+            <tariffication>1 hour</tariffication>
+            <connectionPrice>2.45</connectionPrice>
+        </parameters>
+        <downloadSpeed>30</downloadSpeed>
+        <uploadSpeed>30</uploadSpeed>
+    </homeTariff>
+
+</tariffs>
