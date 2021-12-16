@@ -3,58 +3,58 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://www.javacourse.by/tariff  tariffsSchema.xsd ">
 
-    <phoneTariff id="tariff001" available="false">
+    <phone-tariff id="tariff001" available="true">
         <name>Super</name>
         <operator>MTS</operator>
         <payroll>10.25</payroll>
         <parameters>
             <tariffication>1 minute</tariffication>
-            <connectionPrice>0.0</connectionPrice>
+            <connection-price>0.0</connection-price>
         </parameters>
-        <callPrice>
-            <networkCallPrice>0.75</networkCallPrice>
-            <roamingCallPrice>1.0</roamingCallPrice>
-        </callPrice>
-        <smsPrice>0.1</smsPrice>
-    </phoneTariff>
+        <call-price>
+            <network-call-price>0.75</network-call-price>
+            <roaming-call-price>1.0</roaming-call-price>
+        </call-price>
+        <sms-price>0.1</sms-price>
+    </phone-tariff>
 
-    <phoneTariff id="tariff002">
-        <name>Alpha</name>
-        <operator>A1</operator>
-        <payroll>19.85</payroll>
-        <parameters>
-            <tariffication>12 seconds</tariffication>
-            <connectionPrice>0.0</connectionPrice>
-        </parameters>
-        <callPrice>
-            <networkCallPrice>0.5</networkCallPrice>
-            <roamingCallPrice>0.75</roamingCallPrice>
-        </callPrice>
-        <smsPrice>0.05</smsPrice>
-    </phoneTariff>
+<!--    <phone-tariff id="tariff002">-->
+<!--        <name>Alpha</name>-->
+<!--        <operator>A1</operator>-->
+<!--        <payroll>19.85</payroll>-->
+<!--        <parameters>-->
+<!--            <tariffication>12 seconds</tariffication>-->
+<!--            <connection-price>0.0</connection-price>-->
+<!--        </parameters>-->
+<!--        <call-price>-->
+<!--            <network-call-price>0.5</network-call-price>-->
+<!--            <roaming-call-price>0.75</roaming-call-price>-->
+<!--        </call-price>-->
+<!--        <sms-price>0.05</sms-price>-->
+<!--    </phone-tariff>-->
 
-    <internetTariff id="tariff003">
-        <name>Ultra</name>
-        <operator>LIFE</operator>
-        <payroll>25.15</payroll>
-        <parameters>
-            <tariffication>1 hour</tariffication>
-            <connectionPrice>0.0</connectionPrice>
-        </parameters>
-        <downloadSpeed>50</downloadSpeed>
-        <uploadSpeed>65.5</uploadSpeed>
-    </internetTariff>
+<!--    <internet-tariff id="tariff003">-->
+<!--        <name>Ultra</name>-->
+<!--        <operator>LIFE</operator>-->
+<!--        <payroll>25.15</payroll>-->
+<!--        <parameters>-->
+<!--            <tariffication>1 hour</tariffication>-->
+<!--            <connection-price>0.0</connection-price>-->
+<!--        </parameters>-->
+<!--        <download-speed>50</download-speed>-->
+<!--        <upload-speed>65.5</upload-speed>-->
+<!--    </internet-tariff>-->
 
-    <internetTariff id="tariff004">
+    <internet-tariff id="tariff004">
         <name>Light</name>
         <operator>MTS</operator>
         <payroll>11.95</payroll>
         <parameters>
             <tariffication>1 hour</tariffication>
-            <connectionPrice>2.45</connectionPrice>
+            <connection-price>2.45</connection-price>
         </parameters>
-        <downloadSpeed>30</downloadSpeed>
-        <uploadSpeed>30</uploadSpeed>
-    </internetTariff>
+        <download-speed>30</download-speed>
+        <upload-speed>30</upload-speed>
+    </internet-tariff>
 
 </tariffs>

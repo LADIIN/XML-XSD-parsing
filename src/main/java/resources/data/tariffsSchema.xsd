@@ -5,8 +5,8 @@
         elementFormDefault="qualified">
 
     <element name="tariff" type="c:tariff" abstract="true"/>
-    <element name="phoneTariff" type="c:phoneTariff" substitutionGroup="c:tariff"/>
-    <element name="internetTariff" type="c:internetTariff" substitutionGroup="c:tariff"/>
+    <element name="phone-tariff" type="c:phone-tariff" substitutionGroup="c:tariff"/>
+    <element name="internet-tariff" type="c:internet-tariff" substitutionGroup="c:tariff"/>
 
     <element name="tariffs">
         <complexType>
@@ -28,23 +28,23 @@
         <attribute name="available" type="boolean" use="optional" default="true"/>
     </complexType>
 
-    <complexType name="phoneTariff">
+    <complexType name="phone-tariff">
         <complexContent>
             <extension base="c:tariff">
                 <sequence>
-                    <element name="callPrice" type="c:callPrice"/>
-                    <element name="smsPrice" type="c:nonNegativeDouble"/>
+                    <element name="call-price" type="c:call-price"/>
+                    <element name="sms-price" type="c:nonNegativeDouble"/>
                 </sequence>
             </extension>
         </complexContent>
     </complexType>
 
-    <complexType name="internetTariff">
+    <complexType name="internet-tariff">
         <complexContent>
             <extension base="c:tariff">
                 <sequence>
-                    <element name="downloadSpeed" type="c:nonNegativeDouble"/>
-                    <element name="uploadSpeed" type="c:nonNegativeDouble"/>
+                    <element name="download-speed" type="c:nonNegativeDouble"/>
+                    <element name="upload-speed" type="c:nonNegativeDouble"/>
                 </sequence>
             </extension>
         </complexContent>
@@ -53,7 +53,7 @@
     <complexType name="parameters">
         <sequence>
             <element name="tariffication" type="c:tariffication"/>
-            <element name="connectionPrice" type="c:nonNegativeDouble"/>
+            <element name="connection-price" type="c:nonNegativeDouble"/>
         </sequence>
     </complexType>
 
@@ -71,10 +71,10 @@
         </restriction>
     </simpleType>
 
-    <complexType name="callPrice">
+    <complexType name="call-price">
         <sequence>
-            <element name="networkCallPrice" type="c:nonNegativeDouble"/>
-            <element name="roamingCallPrice" type="c:nonNegativeDouble"/>
+            <element name="network-call-price" type="c:nonNegativeDouble"/>
+            <element name="roaming-call-price" type="c:nonNegativeDouble"/>
         </sequence>
     </complexType>
 
