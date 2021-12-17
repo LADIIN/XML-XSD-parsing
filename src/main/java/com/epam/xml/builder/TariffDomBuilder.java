@@ -25,7 +25,7 @@ public class TariffDomBuilder extends AbstractTariffBuilder {
     private static final Logger LOGGER = Logger.getLogger(TariffDomBuilder.class.getName());
     private DocumentBuilder documentBuilder;
 
-    TariffDomBuilder() {
+    public TariffDomBuilder() {
         super();
 
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
