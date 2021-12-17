@@ -1,6 +1,6 @@
 package com.epam.xml.builder;
 
-import com.epam.xml.entity.type.Tariff;
+import com.epam.xml.entity.Tariff;
 import com.epam.xml.exceptin.TariffException;
 
 import java.util.ArrayList;

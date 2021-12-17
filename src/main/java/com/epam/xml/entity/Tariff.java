@@ -1,9 +1,10 @@
-package com.epam.xml.entity.type;
+package com.epam.xml.entity;
 
-import com.epam.xml.entity.OperatorType;
-import com.epam.xml.entity.Parameters;
+import com.epam.xml.entity.type.OperatorType;
+import com.epam.xml.entity.type.Parameters;
 
 public abstract class Tariff {
+
     private String id;
     private String name;
     private OperatorType operator;

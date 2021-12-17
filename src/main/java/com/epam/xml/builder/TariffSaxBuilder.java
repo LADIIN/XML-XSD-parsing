@@ -1,10 +1,9 @@
 package com.epam.xml.builder;
 
-import com.epam.xml.entity.type.Tariff;
+import com.epam.xml.entity.Tariff;
 import com.epam.xml.exceptin.TariffException;
 import com.epam.xml.handler.TariffErrorHandler;
 import com.epam.xml.handler.TariffHandler;
-import com.epam.xml.validator.TariffValidator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
@@ -14,7 +13,6 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.IOException;
-import java.net.URL;
 import java.util.List;
 
 public class TariffSaxBuilder extends AbstractTariffBuilder {

@@ -1,10 +1,10 @@
-package com.epam.xml.entity;
+package com.epam.xml.entity.type;
 
 
 import java.util.EnumSet;
 
 public enum Tariffication {
-    SECONDS,
+    TWELVE_SECONDS,
     MINUTE,
     HOUR;
 
@@ -13,7 +13,7 @@ public enum Tariffication {
         String tariffication;
 
         switch (this) {
-            case SECONDS:
+            case TWELVE_SECONDS:
                 tariffication = "12 seconds";
                 break;
             case MINUTE:

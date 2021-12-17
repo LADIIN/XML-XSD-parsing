@@ -1,4 +1,4 @@
-package com.epam.xml.entity;
+package com.epam.xml.entity.type;
 
 public class Parameters {
     private Tariffication tariffication;

@@ -1,12 +1,12 @@
 package com.epam.xml.builder;
 
-import com.epam.xml.entity.type.OperatorType;
-import com.epam.xml.entity.type.Parameters;
-import com.epam.xml.entity.type.Tariffication;
-import com.epam.xml.entity.type.CallPrice;
 import com.epam.xml.entity.InternetTariff;
 import com.epam.xml.entity.PhoneTariff;
 import com.epam.xml.entity.Tariff;
+import com.epam.xml.entity.type.CallPrice;
+import com.epam.xml.entity.type.OperatorType;
+import com.epam.xml.entity.type.Parameters;
+import com.epam.xml.entity.type.Tariffication;
 import com.epam.xml.exceptin.TariffException;
 import org.junit.Assert;
 import org.junit.Test;
@@ -14,7 +14,7 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
-public class TariffSaxBuilderTest {
+public class TariffDomBuilderTest {
     private static final String VALID_FILE_PATH = "src/main/java/resources/data/tariffs.xml";
 
     @Test
@@ -47,18 +47,18 @@ public class TariffSaxBuilderTest {
                 30
         );
 
-        TariffSaxBuilder tariffSaxBuilder = new TariffSaxBuilder();
+        TariffDomBuilder tariffDomBuilder = new TariffDomBuilder();
         List<Tariff> expected = Arrays.asList(phoneTariff, internetTariff);
 
         //when
-        tariffSaxBuilder.createTariffs(VALID_FILE_PATH);
+        tariffDomBuilder.createTariffs(VALID_FILE_PATH);
 
         //then
-        List<Tariff> actual = tariffSaxBuilder.getTariffs();
-
+        List<Tariff> actual = tariffDomBuilder.getTariffs();
         Assert.assertEquals(expected, actual);
 
 
     }
 
 }
+

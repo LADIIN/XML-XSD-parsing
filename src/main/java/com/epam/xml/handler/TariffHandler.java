@@ -2,11 +2,11 @@ package com.epam.xml.handler;
 
 import com.epam.xml.builder.type.TariffXmlAttribute;
 import com.epam.xml.builder.type.TariffXmlTag;
-import com.epam.xml.entity.OperatorType;
-import com.epam.xml.entity.Tariffication;
-import com.epam.xml.entity.type.InternetTariff;
-import com.epam.xml.entity.type.PhoneTariff;
-import com.epam.xml.entity.type.Tariff;
+import com.epam.xml.entity.type.OperatorType;
+import com.epam.xml.entity.type.Tariffication;
+import com.epam.xml.entity.InternetTariff;
+import com.epam.xml.entity.PhoneTariff;
+import com.epam.xml.entity.Tariff;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.xml.sax.Attributes;

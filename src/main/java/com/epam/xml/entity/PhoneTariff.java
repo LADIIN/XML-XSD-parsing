@@ -1,7 +1,8 @@
-package com.epam.xml.entity.type;
+package com.epam.xml.entity;
 
-import com.epam.xml.entity.OperatorType;
-import com.epam.xml.entity.Parameters;
+import com.epam.xml.entity.type.CallPrice;
+import com.epam.xml.entity.type.OperatorType;
+import com.epam.xml.entity.type.Parameters;
 
 import java.util.Objects;
 
