@@ -10,20 +10,19 @@ public class TariffErrorHandler extends DefaultHandler {
     private boolean isError = false;
 
     public void warning(SAXParseException e) {
-        LOGGER.log(Level.WARN, getLineAddress(e) + " - " + e.getMessage());
+        LOGGER.log(Level.WARN, String.format("Warning: [%s] - %s", getLineAddress(e), e.getMessage()));
         isError = true;
     }
 
     public void error(SAXParseException e) {
-        LOGGER.log(Level.ERROR, getLineAddress(e) + " - " + e.getMessage());
+        LOGGER.log(Level.WARN, String.format("Error: [%s] - %s", getLineAddress(e), e.getMessage()));
         isError = true;
 
     }
 
     public void fatalError(SAXParseException e) {
-        LOGGER.log(Level.FATAL, getLineAddress(e) + " - " + e.getMessage());
+        LOGGER.log(Level.FATAL, String.format("Fatal error: [%s] - %s", getLineAddress(e), e.getMessage()));
         isError = true;
-
     }
 
     private String getLineAddress(SAXParseException e) {

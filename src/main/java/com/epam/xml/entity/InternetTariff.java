@@ -3,13 +3,19 @@ package com.epam.xml.entity;
 import com.epam.xml.entity.type.OperatorType;
 import com.epam.xml.entity.type.Parameters;
 
+import javax.xml.bind.annotation.*;
 import java.util.Objects;
 
-public class InternetTariff extends Tariff {
-    private  double downloadSpeed;
-    private  double uploadSpeed;
 
-    public InternetTariff(){
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "InternetTariff", propOrder = {"downloadSpeed", "uploadSpeed"})
+public class InternetTariff extends Tariff {
+    @XmlElement(name = "download-speed", namespace = "http://www.javacourse.by/tariff", required = true)
+    private double downloadSpeed;
+    @XmlElement(name = "upload-speed", namespace = "http://www.javacourse.by/tariff", required = true)
+    private double uploadSpeed;
+
+    public InternetTariff() {
         super();
     }
 

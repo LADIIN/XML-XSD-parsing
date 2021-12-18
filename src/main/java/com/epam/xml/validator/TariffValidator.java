@@ -1,5 +1,6 @@
 package com.epam.xml.validator;
 
+import com.epam.xml.exceptin.TariffException;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
@@ -18,11 +19,12 @@ public class TariffValidator {
 
     private static final Logger LOGGER = Logger.getLogger(TariffValidator.class.getName());
 
-    //TODO: Add checking for null-paths
+    public boolean isValid(String xmlPath, String xsdPath) throws TariffException {
+        if (xmlPath == null || xmlPath.isEmpty() || xsdPath == null || xsdPath.isEmpty()) {
+            throw new TariffException("XML or XSD filepath is empty or null.");
+        }
 
-    public boolean isValid(String xmlPath, String xsdPath) {
-        String language = XMLConstants.W3C_XML_SCHEMA_NS_URI;
-        SchemaFactory schemaFactory = SchemaFactory.newInstance(language);
+        SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
         boolean isValid = true;
 
         try {
@@ -40,12 +42,11 @@ public class TariffValidator {
             if (errorHandler.isErrorHappened()) {
                 isValid = false;
             }
-
-            LOGGER.log(Level.INFO, String.format("File %s is valid.", xmlPath));
-
         } catch (SAXException | IOException e) {
             LOGGER.log(Level.ERROR, String.format("File %s is not valid.", xmlPath), e);
         }
+
+        LOGGER.log(Level.INFO, String.format("File %s is valid - %b", xmlPath, isValid));
 
         return isValid;
     }

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<tariffs xmlns="http://www.javacourse.by/tariff"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.javacourse.by/tariff  tariffsSchema.xsd ">
+
+    <phone-tariff id="tariff001" available="true">
+        <name>Super</name>
+        <operator>MTS</operator>
+        <payroll>10.25</payroll>
+        <parameters>
+            <tariffication>1 minute</tariffication>
+            <connection-price>0.0</connection-price>
+        </parameters>
+        <call-price>
+            <network-call-price>0.75</network-call-price>
+            <roaming-call-price>1.0</roaming-call-price>
+        </call-price>
+        <sms-price>0.1</sms-price>
+        <wrong-tag></wrong-tag>
+    </phone-tariff>
+
+    <internet-tariff id="tariff004">
+        <name>Light</name>
+        <operator>MTS</operator>
+        <payroll>11.95</payroll>
+        <parameters>
+            <tariffication>1 hour</tariffication>
+            <connection-price>2.45</connection-price>
+        </parameters>
+        <download-speed>30</download-speed>
+        <upload-speed>30</upload-speed>
+        <wrong-tag></wrong-tag>
+    </internet-tariff>
+
+</tariffs>

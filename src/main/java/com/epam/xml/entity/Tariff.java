@@ -3,13 +3,27 @@ package com.epam.xml.entity;
 import com.epam.xml.entity.type.OperatorType;
 import com.epam.xml.entity.type.Parameters;
 
-public abstract class Tariff {
+import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "Tariff", propOrder = {"name", "operator", "payroll", "parameters"})
+@XmlSeeAlso({PhoneTariff.class, InternetTariff.class})
+public abstract class Tariff {
+    @XmlAttribute(required = true)
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    @XmlID
     private String id;
+    @XmlElement(namespace = "http://www.javacourse.by/tariff", required = true)
     private String name;
+    @XmlElement(namespace = "http://www.javacourse.by/tariff", required = true)
     private OperatorType operator;
+    @XmlElement(namespace = "http://www.javacourse.by/tariff", required = true)
     private double payroll;
+    @XmlElement(namespace = "http://www.javacourse.by/tariff", required = true)
     private Parameters parameters = new Parameters();
+    @XmlAttribute(name = "available")
     private boolean isAvailable;
 
     public Tariff() {
@@ -25,7 +39,6 @@ public abstract class Tariff {
         this.parameters = parameters;
         this.isAvailable = isAvailable;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -63,14 +76,8 @@ public abstract class Tariff {
 
     @Override
     public String toString() {
-        return "Tariff{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", operator=" + operator +
-                ", payroll=" + payroll +
-                ", parameters=" + parameters +
-                ", isAvailable=" + isAvailable +
-                '}';
+        return String.format("\nID = %s\nName = %s\nOperator = %s\nPayroll = %s\nParameters = %s \nIsAvailable = %s\n",
+                id, name, operator, payroll, parameters, isAvailable);
     }
 
     public String getId() {

@@ -18,32 +18,32 @@
         <sms-price>0.1</sms-price>
     </phone-tariff>
 
-<!--    <phone-tariff id="tariff002">-->
-<!--        <name>Alpha</name>-->
-<!--        <operator>A1</operator>-->
-<!--        <payroll>19.85</payroll>-->
-<!--        <parameters>-->
-<!--            <tariffication>12 seconds</tariffication>-->
-<!--            <connection-price>0.0</connection-price>-->
-<!--        </parameters>-->
-<!--        <call-price>-->
-<!--            <network-call-price>0.5</network-call-price>-->
-<!--            <roaming-call-price>0.75</roaming-call-price>-->
-<!--        </call-price>-->
-<!--        <sms-price>0.05</sms-price>-->
-<!--    </phone-tariff>-->
+    <!--    <phone-tariff id="tariff002">-->
+    <!--        <name>Alpha</name>-->
+    <!--        <operator>A1</operator>-->
+    <!--        <payroll>19.85</payroll>-->
+    <!--        <parameters>-->
+    <!--            <tariffication>12 seconds</tariffication>-->
+    <!--            <connection-price>0.0</connection-price>-->
+    <!--        </parameters>-->
+    <!--        <call-price>-->
+    <!--            <network-call-price>0.5</network-call-price>-->
+    <!--            <roaming-call-price>0.75</roaming-call-price>-->
+    <!--        </call-price>-->
+    <!--        <sms-price>0.05</sms-price>-->
+    <!--    </phone-tariff>-->
 
-<!--    <internet-tariff id="tariff003">-->
-<!--        <name>Ultra</name>-->
-<!--        <operator>LIFE</operator>-->
-<!--        <payroll>25.15</payroll>-->
-<!--        <parameters>-->
-<!--            <tariffication>1 hour</tariffication>-->
-<!--            <connection-price>0.0</connection-price>-->
-<!--        </parameters>-->
-<!--        <download-speed>50</download-speed>-->
-<!--        <upload-speed>65.5</upload-speed>-->
-<!--    </internet-tariff>-->
+    <!--    <internet-tariff id="tariff003">-->
+    <!--        <name>Ultra</name>-->
+    <!--        <operator>LIFE</operator>-->
+    <!--        <payroll>25.15</payroll>-->
+    <!--        <parameters>-->
+    <!--            <tariffication>1 hour</tariffication>-->
+    <!--            <connection-price>0.0</connection-price>-->
+    <!--        </parameters>-->
+    <!--        <download-speed>50</download-speed>-->
+    <!--        <upload-speed>65.5</upload-speed>-->
+    <!--    </internet-tariff>-->
 
     <internet-tariff id="tariff004">
         <name>Light</name>
