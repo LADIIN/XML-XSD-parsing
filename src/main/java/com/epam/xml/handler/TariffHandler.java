@@ -1,6 +1,6 @@
 package com.epam.xml.handler;
 
-import com.epam.xml.builder.TariffXmlTag;
+import com.epam.xml.parser.TariffXmlTag;
 import com.epam.xml.entity.type.OperatorType;
 import com.epam.xml.entity.type.Tariffication;
 import com.epam.xml.entity.InternetTariff;

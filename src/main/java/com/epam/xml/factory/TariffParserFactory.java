@@ -1,9 +1,9 @@
 package com.epam.xml.factory;
 
-import com.epam.xml.builder.TariffParser;
-import com.epam.xml.builder.impl.TariffDomParser;
-import com.epam.xml.builder.impl.TariffJaxbParser;
-import com.epam.xml.builder.impl.TariffSaxParser;
+import com.epam.xml.parser.TariffParser;
+import com.epam.xml.parser.impl.TariffDomParser;
+import com.epam.xml.parser.impl.TariffJaxbParser;
+import com.epam.xml.parser.impl.TariffSaxParser;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 

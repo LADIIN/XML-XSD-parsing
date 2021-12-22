@@ -1,7 +1,7 @@
-package com.epam.xml.builder.impl;
+package com.epam.xml.parser.impl;
 
-import com.epam.xml.builder.TariffParser;
-import com.epam.xml.builder.TariffXmlTag;
+import com.epam.xml.parser.TariffParser;
+import com.epam.xml.parser.TariffXmlTag;
 import com.epam.xml.entity.InternetTariff;
 import com.epam.xml.entity.PhoneTariff;
 import com.epam.xml.entity.Tariff;

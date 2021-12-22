@@ -1,4 +1,4 @@
-package com.epam.xml.builder;
+package com.epam.xml.parser;
 
 public enum TariffXmlTag {
     ID("id"),

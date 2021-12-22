@@ -1,6 +1,6 @@
 package com.epam.xml.director;
 
-import com.epam.xml.builder.TariffParser;
+import com.epam.xml.parser.TariffParser;
 import com.epam.xml.entity.Tariff;
 import com.epam.xml.exceptin.TariffException;
 import com.epam.xml.factory.ParserType;
@@ -22,7 +22,6 @@ public class TariffDirector {
         try {
             if (validator.isValid(xmlPath, xsdPath)) {
                 TariffParser parser = TariffParserFactory.create(parserType);
-
                 tariffs = parser.parse(xmlPath);
             }
         } catch (TariffException e) {

@@ -1,4 +1,4 @@
-package com.epam.xml.builder;
+package com.epam.xml.parser;
 
 import com.epam.xml.entity.Tariff;
 import com.epam.xml.exceptin.TariffException;

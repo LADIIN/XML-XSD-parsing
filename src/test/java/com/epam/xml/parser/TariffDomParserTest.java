@@ -1,6 +1,6 @@
-package com.epam.xml.builder;
+package com.epam.xml.parser;
 
-import com.epam.xml.builder.impl.TariffJaxbParser;
+import com.epam.xml.parser.impl.TariffDomParser;
 import com.epam.xml.entity.InternetTariff;
 import com.epam.xml.entity.PhoneTariff;
 import com.epam.xml.entity.Tariff;
@@ -15,7 +15,7 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
-public class TariffJaxbParserTest {
+public class TariffDomParserTest {
     private static final String VALID_FILE_PATH = "src/main/java/resources/data/tariffs.xml";
 
     @Test
@@ -27,20 +27,20 @@ public class TariffJaxbParserTest {
                 phoneParameters, true, callPrice, 0.1);
 
 
-
         Parameters internetParameters = new Parameters(Tariffication.HOUR, 2.45);
         InternetTariff internetTariff = new InternetTariff("tariff004", "Light", OperatorType.MTS, 11.95,
                 internetParameters, false, 30, 30);
-
+        TariffDomParser tariffDomParser = new TariffDomParser();
         List<Tariff> expected = Arrays.asList(phoneTariff, internetTariff);
 
-        TariffJaxbParser parser = new TariffJaxbParser();
-
         //when
-        List<Tariff> actual = parser.parse(VALID_FILE_PATH);
+        List<Tariff> actual = tariffDomParser.parse(VALID_FILE_PATH);
 
         //then
         Assert.assertEquals(expected, actual);
 
+
     }
+
 }
+

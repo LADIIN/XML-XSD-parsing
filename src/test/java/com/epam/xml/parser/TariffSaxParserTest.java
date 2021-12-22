@@ -1,6 +1,6 @@
-package com.epam.xml.builder;
+package com.epam.xml.parser;
 
-import com.epam.xml.builder.impl.TariffSaxParser;
+import com.epam.xml.parser.impl.TariffSaxParser;
 import com.epam.xml.entity.type.OperatorType;
 import com.epam.xml.entity.type.Parameters;
 import com.epam.xml.entity.type.Tariffication;
@@ -39,8 +39,6 @@ public class TariffSaxParserTest {
 
         //then
         Assert.assertEquals(expected, actual);
-
-
     }
 
 }
