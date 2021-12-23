@@ -1,4 +1,4 @@
-package com.epam.xml.exceptin;
+package com.epam.xml.exception;
 
 public class TariffException extends Exception {
     public TariffException() {

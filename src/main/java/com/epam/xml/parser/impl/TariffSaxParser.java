@@ -2,7 +2,7 @@ package com.epam.xml.parser.impl;
 
 import com.epam.xml.parser.TariffParser;
 import com.epam.xml.entity.Tariff;
-import com.epam.xml.exceptin.TariffException;
+import com.epam.xml.exception.TariffException;
 import com.epam.xml.handler.TariffErrorHandler;
 import com.epam.xml.handler.TariffHandler;
 import org.apache.log4j.Logger;

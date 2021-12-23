@@ -1,7 +1,7 @@
 package com.epam.xml.parser;
 
 import com.epam.xml.entity.Tariff;
-import com.epam.xml.exceptin.TariffException;
+import com.epam.xml.exception.TariffException;
 
 import java.util.List;
 

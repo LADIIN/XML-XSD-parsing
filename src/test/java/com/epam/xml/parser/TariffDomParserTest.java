@@ -8,7 +8,7 @@ import com.epam.xml.entity.type.CallPrice;
 import com.epam.xml.entity.type.OperatorType;
 import com.epam.xml.entity.type.Parameters;
 import com.epam.xml.entity.type.Tariffication;
-import com.epam.xml.exceptin.TariffException;
+import com.epam.xml.exception.TariffException;
 import org.junit.Assert;
 import org.junit.Test;
 

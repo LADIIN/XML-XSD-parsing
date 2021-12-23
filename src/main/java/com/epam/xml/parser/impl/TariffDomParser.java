@@ -7,7 +7,7 @@ import com.epam.xml.entity.PhoneTariff;
 import com.epam.xml.entity.Tariff;
 import com.epam.xml.entity.type.OperatorType;
 import com.epam.xml.entity.type.Tariffication;
-import com.epam.xml.exceptin.TariffException;
+import com.epam.xml.exception.TariffException;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.w3c.dom.Document;

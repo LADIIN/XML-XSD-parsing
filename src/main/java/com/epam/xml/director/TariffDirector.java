@@ -2,7 +2,7 @@ package com.epam.xml.director;
 
 import com.epam.xml.parser.TariffParser;
 import com.epam.xml.entity.Tariff;
-import com.epam.xml.exceptin.TariffException;
+import com.epam.xml.exception.TariffException;
 import com.epam.xml.factory.ParserType;
 import com.epam.xml.factory.TariffParserFactory;
 import com.epam.xml.validator.TariffValidator;

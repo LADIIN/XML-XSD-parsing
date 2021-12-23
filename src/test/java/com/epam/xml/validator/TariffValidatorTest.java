@@ -1,6 +1,6 @@
 package com.epam.xml.validator;
 
-import com.epam.xml.exceptin.TariffException;
+import com.epam.xml.exception.TariffException;
 import org.junit.Assert;
 import org.junit.Test;
 

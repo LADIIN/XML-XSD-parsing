@@ -1,6 +1,6 @@
 package com.epam.xml.validator;
 
-import com.epam.xml.exceptin.TariffException;
+import com.epam.xml.exception.TariffException;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
