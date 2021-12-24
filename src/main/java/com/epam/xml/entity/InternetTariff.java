@@ -10,9 +10,9 @@ import java.util.Objects;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "InternetTariff", propOrder = {"downloadSpeed", "uploadSpeed"})
 public class InternetTariff extends Tariff {
-    @XmlElement(name = "download-speed", namespace = "http://www.javacourse.by/tariff", required = true)
+    @XmlElement(name = "download-speed", namespace = "http://www.javacourse.by/tariff")
     private double downloadSpeed;
-    @XmlElement(name = "upload-speed", namespace = "http://www.javacourse.by/tariff", required = true)
+    @XmlElement(name = "upload-speed", namespace = "http://www.javacourse.by/tariff")
     private double uploadSpeed;
 
     public InternetTariff() {

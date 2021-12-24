@@ -26,9 +26,8 @@ public class TariffDomParserTest {
         PhoneTariff phoneTariff = new PhoneTariff("tariff001", "Super", OperatorType.MTS, 10.25,
                 phoneParameters, true, callPrice, 0.1);
 
-
         Parameters internetParameters = new Parameters(Tariffication.HOUR, 2.45);
-        InternetTariff internetTariff = new InternetTariff("tariff004", "Light", OperatorType.MTS, 11.95,
+        InternetTariff internetTariff = new InternetTariff("tariff002", "Light", OperatorType.MTS, 11.95,
                 internetParameters, false, 30, 30);
         TariffDomParser tariffDomParser = new TariffDomParser();
         List<Tariff> expected = Arrays.asList(phoneTariff, internetTariff);

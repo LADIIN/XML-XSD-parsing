@@ -28,7 +28,7 @@ public class TariffSaxParserTest {
 
 
         Parameters internetParameters = new Parameters(Tariffication.HOUR, 2.45);
-        InternetTariff internetTariff = new InternetTariff("tariff004", "Light", OperatorType.MTS, 11.95,
+        InternetTariff internetTariff = new InternetTariff("tariff002", "Light", OperatorType.MTS, 11.95,
                 internetParameters, false, 30, 30);
 
         TariffSaxParser tariffSaxParser = new TariffSaxParser();

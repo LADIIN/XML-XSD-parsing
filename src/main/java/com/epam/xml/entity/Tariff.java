@@ -11,17 +11,17 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlType(name = "Tariff", propOrder = {"name", "operator", "payroll", "parameters"})
 @XmlSeeAlso({PhoneTariff.class, InternetTariff.class})
 public abstract class Tariff {
-    @XmlAttribute(required = true)
+    @XmlAttribute
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
     private String id;
-    @XmlElement(namespace = "http://www.javacourse.by/tariff", required = true)
+    @XmlElement(namespace = "http://www.javacourse.by/tariff")
     private String name;
-    @XmlElement(namespace = "http://www.javacourse.by/tariff", required = true)
+    @XmlElement(namespace = "http://www.javacourse.by/tariff")
     private OperatorType operator;
-    @XmlElement(namespace = "http://www.javacourse.by/tariff", required = true)
+    @XmlElement(namespace = "http://www.javacourse.by/tariff")
     private double payroll;
-    @XmlElement(namespace = "http://www.javacourse.by/tariff", required = true)
+    @XmlElement(namespace = "http://www.javacourse.by/tariff")
     private Parameters parameters = new Parameters();
     @XmlAttribute(name = "available")
     private boolean isAvailable;

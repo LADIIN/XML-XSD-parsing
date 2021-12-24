@@ -11,9 +11,9 @@ import java.util.Objects;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "PhoneTariff", propOrder = {"callPrice", "smsPrice"})
 public class PhoneTariff extends Tariff {
-    @XmlElement(name = "call-price", namespace = "http://www.javacourse.by/tariff", required = true)
+    @XmlElement(name = "call-price", namespace = "http://www.javacourse.by/tariff")
     private CallPrice callPrice = new CallPrice();
-    @XmlElement(name = "sms-price", namespace = "http://www.javacourse.by/tariff", required = true)
+    @XmlElement(name = "sms-price", namespace = "http://www.javacourse.by/tariff")
     private double smsPrice;
 
     public PhoneTariff() {

@@ -6,9 +6,9 @@ import java.util.Objects;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CallPrice", namespace = "http://www.javacourse.by/tariff", propOrder = {"networkCallPrice", "roamingCallPrice"})
 public class CallPrice {
-    @XmlElement(name = "network-call-price", namespace = "http://www.javacourse.by/tariff", required = true)
+    @XmlElement(name = "network-call-price", namespace = "http://www.javacourse.by/tariff")
     private double networkCallPrice;
-    @XmlElement(name = "roaming-call-price", namespace = "http://www.javacourse.by/tariff", required = true)
+    @XmlElement(name = "roaming-call-price", namespace = "http://www.javacourse.by/tariff")
     private double roamingCallPrice;
 
     public CallPrice(double networkCallPrice, double roamingCallPrice) {

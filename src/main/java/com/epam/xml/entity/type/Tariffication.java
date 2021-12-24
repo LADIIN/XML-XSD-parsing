@@ -19,13 +19,14 @@ public enum Tariffication {
 
     String value;
 
+    Tariffication(String value) {
+        this.value = value;
+    }
+
     public String getValue() {
         return value;
     }
 
-    Tariffication(String value) {
-        this.value = value;
-    }
 
     public static Tariffication findByValue(String value) {
         EnumSet<Tariffication> tariffications = EnumSet.allOf(Tariffication.class);

@@ -33,25 +33,13 @@ public class TariffDomParser implements TariffParser {
 
         try {
             DocumentBuilder documentBuilder = factory.newDocumentBuilder();
-
             Document document = documentBuilder.parse(xmlPath);
             Element root = document.getDocumentElement();
-            NodeList phoneTariffs = root.getElementsByTagName(TariffXmlTag.PHONE_TARIFF.toString());
 
-            for (int i = 0; i < phoneTariffs.getLength(); i++) {
-                Element phoneTariffElement = (Element) phoneTariffs.item(i);
-                Tariff tariff = parseElement(phoneTariffElement);
-                tariffs.add(tariff);
-            }
+            findElementsByTagName(tariffs, root, TariffXmlTag.PHONE_TARIFF);
             LOGGER.log(Level.INFO, "PhoneTariffs have been created and added to list.");
 
-            NodeList internetTariffs = root.getElementsByTagName(TariffXmlTag.INTERNET_TARIFF.toString());
-
-            for (int i = 0; i < internetTariffs.getLength(); i++) {
-                Element internetTariffElement = (Element) internetTariffs.item(i);
-                Tariff tariff = parseElement(internetTariffElement);
-                tariffs.add(tariff);
-            }
+            findElementsByTagName(tariffs, root, TariffXmlTag.INTERNET_TARIFF);
             LOGGER.log(Level.INFO, "InternetTariffs have been created and added to list.");
 
         } catch (IOException | SAXException | ParserConfigurationException e) {
@@ -61,9 +49,19 @@ public class TariffDomParser implements TariffParser {
         return tariffs;
     }
 
+    private void findElementsByTagName(List<Tariff> tariffs, Element root, TariffXmlTag tagName) {
+        NodeList internetTariffs = root.getElementsByTagName(tagName.getValue());
+
+        for (int i = 0; i < internetTariffs.getLength(); i++) {
+            Element internetTariffElement = (Element) internetTariffs.item(i);
+            Tariff tariff = parseElement(internetTariffElement);
+            tariffs.add(tariff);
+        }
+    }
+
     private Tariff parseElement(Element tariffElement) {
         String className = tariffElement.getTagName();
-        String phoneTariffTag = TariffXmlTag.PHONE_TARIFF.toString();
+        String phoneTariffTag = TariffXmlTag.PHONE_TARIFF.getValue();
         Tariff currentTariff = className.equals(phoneTariffTag) ? new PhoneTariff() : new InternetTariff();
 
         parseTariffFields(tariffElement, currentTariff);
@@ -78,48 +76,49 @@ public class TariffDomParser implements TariffParser {
     }
 
     private void parseTariffFields(Element tariffElement, Tariff currentTariff) {
-        String content = tariffElement.getAttribute(TariffXmlTag.ID.toString());
+        String content = tariffElement.getAttribute(TariffXmlTag.ID.getValue());
         currentTariff.setId(content);
 
-        content = tariffElement.getAttribute(TariffXmlTag.AVAILABLE.toString());
+        content = tariffElement.getAttribute(TariffXmlTag.AVAILABLE.getValue());
 
         if (!content.isEmpty()) {
             boolean isAvailable = Boolean.parseBoolean(content);
             currentTariff.setAvailable(isAvailable);
         }
 
-        content = getElementTextContent(tariffElement, TariffXmlTag.NAME.toString());
+        content = getElementTextContent(tariffElement, TariffXmlTag.NAME.getValue());
         currentTariff.setName(content);
 
-        content = getElementTextContent(tariffElement, TariffXmlTag.OPERATOR.toString());
+        content = getElementTextContent(tariffElement, TariffXmlTag.OPERATOR.getValue());
         OperatorType operator = OperatorType.valueOf(content);
         currentTariff.setOperator(operator);
 
-        content = getElementTextContent(tariffElement, TariffXmlTag.PAYROLL.toString());
+        content = getElementTextContent(tariffElement, TariffXmlTag.PAYROLL.getValue());
         double payroll = Double.parseDouble(content);
         currentTariff.setPayroll(payroll);
 
-        String tagName = TariffXmlTag.PARAMETERS.toString();
+        String tagName = TariffXmlTag.PARAMETERS.getValue();
         Element parameters = (Element) tariffElement.getElementsByTagName(tagName).item(0);
 
-        content = getElementTextContent(parameters, TariffXmlTag.TARIFFICATION.toString());
-        Tariffication tariffication = Tariffication.valueOf(content);
+        content = getElementTextContent(parameters, TariffXmlTag.TARIFFICATION.getValue());
+        Tariffication tariffication = Tariffication.findByValue(content);
         currentTariff.getParameters().setTariffication(tariffication);
 
-        content = getElementTextContent(parameters, TariffXmlTag.CONNECTION_PRICE.toString());
+        content = getElementTextContent(parameters, TariffXmlTag.CONNECTION_PRICE.getValue());
         double connectionPrice = Double.parseDouble(content);
         currentTariff.getParameters().setConnectionPrice(connectionPrice);
+
     }
 
     private Tariff createInternetTariff(Element tariffElement, Tariff currentTariff) {
         String content;
         InternetTariff internetTariff = (InternetTariff) currentTariff;
 
-        content = getElementTextContent(tariffElement, TariffXmlTag.DOWNLOAD_SPEED.toString());
+        content = getElementTextContent(tariffElement, TariffXmlTag.DOWNLOAD_SPEED.getValue());
         double downloadSpeed = Double.parseDouble(content);
         internetTariff.setDownloadSpeed(downloadSpeed);
 
-        content = getElementTextContent(tariffElement, TariffXmlTag.UPLOAD_SPEED.toString());
+        content = getElementTextContent(tariffElement, TariffXmlTag.UPLOAD_SPEED.getValue());
         double uploadSpeed = Double.parseDouble(content);
         internetTariff.setUploadSpeed(uploadSpeed);
 
@@ -133,18 +132,18 @@ public class TariffDomParser implements TariffParser {
         String content;
         PhoneTariff phoneTariff = (PhoneTariff) currentTariff;
 
-        tagName = TariffXmlTag.CALL_PRICE.toString();
+        tagName = TariffXmlTag.CALL_PRICE.getValue();
         Element callPrice = (Element) tariffElement.getElementsByTagName(tagName).item(0);
 
-        content = getElementTextContent(callPrice, TariffXmlTag.NETWORK_CALL_PRICE.toString());
+        content = getElementTextContent(callPrice, TariffXmlTag.NETWORK_CALL_PRICE.getValue());
         double networkCallPrice = Double.parseDouble(content);
         phoneTariff.getCallPrice().setNetworkCallPrice(networkCallPrice);
 
-        content = getElementTextContent(callPrice, TariffXmlTag.ROAMING_CALL_PRICE.toString());
+        content = getElementTextContent(callPrice, TariffXmlTag.ROAMING_CALL_PRICE.getValue());
         double roamingCallPrice = Double.parseDouble(content);
         phoneTariff.getCallPrice().setRoamingCallPrice(roamingCallPrice);
 
-        content = getElementTextContent(tariffElement, TariffXmlTag.SMS_PRICE.toString());
+        content = getElementTextContent(tariffElement, TariffXmlTag.SMS_PRICE.getValue());
         double smsPrice = Double.parseDouble(content);
         phoneTariff.setSmsPrice(smsPrice);
 
@@ -159,4 +158,115 @@ public class TariffDomParser implements TariffParser {
 
         return node.getTextContent();
     }
+
+
+//    @Override
+//    public void createTariffs(String xmlPath) {
+//        Document document;
+//
+//        try {
+//            document = documentBuilder.parse(xmlPath);
+//            Element root = document.getDocumentElement();
+//
+//            NodeList phoneTariffs = root.getElementsByTagName(TariffXmlTag.PHONE_TARIFF.toString());
+//
+//            for (int i = 0; i < phoneTariffs.getLength(); i++) {
+//                Element phoneTariffElement = (Element) phoneTariffs.item(i);
+//                Tariff tariff = buildTariff(phoneTariffElement);
+//
+//                getTariffs().add(tariff);
+//
+//                LOGGER.log(Level.INFO,
+//                        String.format("PhoneTariff %s have been created and added to list.", tariff.getId()));
+//            }
+//
+//            NodeList internetTariffs = root.getElementsByTagName(TariffXmlTag.INTERNET_TARIFF.toString());
+//
+//            for (int i = 0; i < internetTariffs.getLength(); i++) {
+//                Element internetTariffElement = (Element) internetTariffs.item(i);
+//                Tariff tariff = buildTariff(internetTariffElement);
+//
+//                getTariffs().add(tariff);
+//
+//                LOGGER.log(Level.INFO,
+//                        String.format("InternetTariff %s have been created and added to list.", tariff.getId()));
+//            }
+//
+//        } catch (IOException | SAXException e) {
+//            LOGGER.log(Level.ERROR, "Dom parser error cause: ", e);
+//        }
+//    }
+//
+//    private Tariff buildTariff(Element tariffElement) {
+//        String className = tariffElement.getTagName();
+//        String phoneTariffTag = TariffXmlTag.PHONE_TARIFF.toString();
+//        Tariff currentTariff = className.equals(phoneTariffTag) ? new PhoneTariff() : new InternetTariff();
+//
+//        String content = tariffElement.getAttribute(TariffXmlAttribute.ID.toString());
+//        currentTariff.setId(content);
+//
+//        content = tariffElement.getAttribute(TariffXmlAttribute.AVAILABLE.toString());
+//
+//        if (!content.isEmpty()) {
+//            boolean isAvailable = Boolean.parseBoolean(content);
+//            currentTariff.setAvailable(isAvailable);
+//        }
+//
+//        content = getElementTextContent(tariffElement, TariffXmlTag.NAME.toString());
+//        currentTariff.setName(content);
+//
+//        content = getElementTextContent(tariffElement, TariffXmlTag.OPERATOR.toString());
+//        OperatorType operator = OperatorType.valueOf(content);
+//        currentTariff.setOperator(operator);
+//
+//        content = getElementTextContent(tariffElement, TariffXmlTag.PAYROLL.toString());
+//        double payroll = Double.parseDouble(content);
+//        currentTariff.setPayroll(payroll);
+//
+//        String tagName = TariffXmlTag.PARAMETERS.toString();
+//        Element parameters = (Element) tariffElement.getElementsByTagName(tagName).item(0);
+//
+//        content = getElementTextContent(parameters, TariffXmlTag.TARIFFICATION.toString());
+//        Tariffication tariffication = Tariffication.findByValue(content);
+//        currentTariff.getParameters().setTariffication(tariffication);
+//
+//        content = getElementTextContent(parameters, TariffXmlTag.CONNECTION_PRICE.toString());
+//        double connectionPrice = Double.parseDouble(content);
+//        currentTariff.getParameters().setConnectionPrice(connectionPrice);
+//
+//        if (className.equals(phoneTariffTag)) {
+//            PhoneTariff phoneTariff = (PhoneTariff) currentTariff;
+//
+//            tagName = TariffXmlTag.CALL_PRICE.toString();
+//            Element callPrice = (Element) tariffElement.getElementsByTagName(tagName).item(0);
+//
+//            content = getElementTextContent(callPrice, TariffXmlTag.NETWORK_CALL_PRICE.toString());
+//            double networkCallPrice = Double.parseDouble(content);
+//            phoneTariff.getCallPrice().setNetworkCallPrice(networkCallPrice);
+//
+//            content = getElementTextContent(callPrice, TariffXmlTag.ROAMING_CALL_PRICE.toString());
+//            double roamingCallPrice = Double.parseDouble(content);
+//            phoneTariff.getCallPrice().setRoamingCallPrice(roamingCallPrice);
+//
+//            content = getElementTextContent(tariffElement, TariffXmlTag.SMS_PRICE.toString());
+//            double smsPrice = Double.parseDouble(content);
+//            phoneTariff.setSmsPrice(smsPrice);
+//
+//            currentTariff = phoneTariff;
+//        } else {
+//            InternetTariff internetTariff = (InternetTariff) currentTariff;
+//
+//            content = getElementTextContent(tariffElement, TariffXmlTag.DOWNLOAD_SPEED.toString());
+//            double downloadSpeed = Double.parseDouble(content);
+//            internetTariff.setDownloadSpeed(downloadSpeed);
+//
+//            content = getElementTextContent(tariffElement, TariffXmlTag.UPLOAD_SPEED.toString());
+//            double uploadSpeed = Double.parseDouble(content);
+//            internetTariff.setUploadSpeed(uploadSpeed);
+//
+//            currentTariff = internetTariff;
+//        }
+//
+//        return currentTariff;
+//    }
 }

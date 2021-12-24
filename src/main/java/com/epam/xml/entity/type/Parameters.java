@@ -5,9 +5,9 @@ import javax.xml.bind.annotation.*;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Parameters", propOrder = {"tariffication", "connectionPrice"})
 public class Parameters {
-    @XmlElement(name = "tariffication", namespace = "http://www.javacourse.by/tariff", required = true)
+    @XmlElement(name = "tariffication", namespace = "http://www.javacourse.by/tariff")
     private Tariffication tariffication;
-    @XmlElement(name = "connection-price", namespace = "http://www.javacourse.by/tariff", required = true)
+    @XmlElement(name = "connection-price", namespace = "http://www.javacourse.by/tariff")
     private double connectionPrice;
 
     public Parameters() {
