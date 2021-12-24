@@ -3,7 +3,6 @@ package com.epam.xml.parser.impl;
 import com.epam.xml.parser.TariffParser;
 import com.epam.xml.entity.Tariff;
 import com.epam.xml.exception.TariffException;
-import com.epam.xml.handler.TariffErrorHandler;
 import com.epam.xml.handler.TariffHandler;
 import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
@@ -26,7 +25,6 @@ public class TariffSaxParser implements TariffParser {
         try {
             SAXParser saxParser = saxParserFactory.newSAXParser();
             XMLReader reader = saxParser.getXMLReader();
-            reader.setErrorHandler(new TariffErrorHandler());
             reader.setContentHandler(handler);
             reader.parse(xmlPath);
         } catch (IOException | SAXException | ParserConfigurationException e) {

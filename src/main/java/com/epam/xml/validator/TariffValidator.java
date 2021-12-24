@@ -4,7 +4,6 @@ import com.epam.xml.exception.TariffException;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
-import com.epam.xml.handler.TariffErrorHandler;
 
 import javax.xml.XMLConstants;
 import javax.xml.transform.Source;
