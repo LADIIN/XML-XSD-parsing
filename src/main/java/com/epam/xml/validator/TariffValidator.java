@@ -29,24 +29,18 @@ public class TariffValidator {
 
         try {
             File xsdFile = new File(xsdPath);
-
             Schema schema = schemaFactory.newSchema(xsdFile);
             Source source = new StreamSource(xmlPath);
 
             Validator validator = schema.newValidator();
-            TariffErrorHandler errorHandler = new TariffErrorHandler();
-            validator.setErrorHandler(errorHandler);
-
             validator.validate(source);
 
-            if (errorHandler.isErrorHappened()) {
-                isValid = false;
-            }
+            LOGGER.log(Level.INFO, String.format("File %s is valid.", xmlPath));
         } catch (SAXException | IOException e) {
-            LOGGER.log(Level.ERROR, String.format("File %s is not valid.", xmlPath), e);
+            LOGGER.log(Level.ERROR, String.format("File %s is not valid cause: ", xmlPath), e);
+            isValid = false;
         }
 
-        LOGGER.log(Level.INFO, String.format("File %s is valid - %b", xmlPath, isValid));
 
         return isValid;
     }
