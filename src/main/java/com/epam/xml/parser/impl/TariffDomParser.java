@@ -36,10 +36,10 @@ public class TariffDomParser implements TariffParser {
             Document document = documentBuilder.parse(xmlPath);
             Element root = document.getDocumentElement();
 
-            findElementsByTagName(tariffs, root, TariffXmlTag.PHONE_TARIFF);
+            parseElementsByTagName(tariffs, root, TariffXmlTag.PHONE_TARIFF);
             LOGGER.log(Level.INFO, "PhoneTariffs have been created and added to list.");
 
-            findElementsByTagName(tariffs, root, TariffXmlTag.INTERNET_TARIFF);
+            parseElementsByTagName(tariffs, root, TariffXmlTag.INTERNET_TARIFF);
             LOGGER.log(Level.INFO, "InternetTariffs have been created and added to list.");
 
         } catch (IOException | SAXException | ParserConfigurationException e) {
@@ -49,7 +49,7 @@ public class TariffDomParser implements TariffParser {
         return tariffs;
     }
 
-    private void findElementsByTagName(List<Tariff> tariffs, Element root, TariffXmlTag tagName) {
+    private void parseElementsByTagName(List<Tariff> tariffs, Element root, TariffXmlTag tagName) {
         NodeList internetTariffs = root.getElementsByTagName(tagName.getValue());
 
         for (int i = 0; i < internetTariffs.getLength(); i++) {
@@ -67,9 +67,9 @@ public class TariffDomParser implements TariffParser {
         parseTariffFields(tariffElement, currentTariff);
 
         if (className.equals(phoneTariffTag)) {
-            currentTariff = createPhoneTariff(tariffElement, currentTariff);
+            currentTariff = expandToPhoneTariff(tariffElement, currentTariff);
         } else {
-            currentTariff = createInternetTariff(tariffElement, currentTariff);
+            currentTariff = expandToInternetTariff(tariffElement, currentTariff);
         }
 
         return currentTariff;
@@ -110,7 +110,7 @@ public class TariffDomParser implements TariffParser {
 
     }
 
-    private Tariff createInternetTariff(Element tariffElement, Tariff currentTariff) {
+    private Tariff expandToInternetTariff(Element tariffElement, Tariff currentTariff) {
         String content;
         InternetTariff internetTariff = (InternetTariff) currentTariff;
 
@@ -127,7 +127,7 @@ public class TariffDomParser implements TariffParser {
         return currentTariff;
     }
 
-    private Tariff createPhoneTariff(Element tariffElement, Tariff currentTariff) {
+    private Tariff expandToPhoneTariff(Element tariffElement, Tariff currentTariff) {
         String tagName;
         String content;
         PhoneTariff phoneTariff = (PhoneTariff) currentTariff;
