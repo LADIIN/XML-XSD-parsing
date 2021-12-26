@@ -21,7 +21,6 @@ public class TariffValidatorTest {
 
         //then
         Assert.assertTrue(actual);
-
     }
 
     @Test
@@ -34,7 +33,6 @@ public class TariffValidatorTest {
 
         //then
         Assert.assertFalse(actual);
-
     }
 
     //then
@@ -45,7 +43,6 @@ public class TariffValidatorTest {
 
         //when
         boolean actual = validator.isValid(EMPTY_PATH, EMPTY_PATH);
-
     }
 
     //then
@@ -56,6 +53,5 @@ public class TariffValidatorTest {
 
         //when
         boolean actual = validator.isValid(null, null);
-
     }
 }

@@ -12,6 +12,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TariffJaxbParser implements TariffParser {
@@ -23,13 +24,10 @@ public class TariffJaxbParser implements TariffParser {
         try {
             JAXBContext context = JAXBContext.newInstance(Tariffs.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();
-
             FileReader reader = new FileReader(xmlPath);
-
             Tariffs tariffs = (Tariffs) unmarshaller.unmarshal(reader);
 
             tariffList = tariffs.getTariffs();
-
             LOGGER.log(Level.INFO, "Tariffs have been read and added to list.");
         } catch (JAXBException | FileNotFoundException e) {
             throw new TariffException("Jaxb parsing exception cause:", e);

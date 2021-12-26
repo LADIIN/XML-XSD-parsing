@@ -41,17 +41,13 @@ public class Parameters {
 
         return tariffication == parameters.getTariffication()
                 && Double.compare(connectionPrice, parameters.getConnectionPrice()) == 0;
-
     }
 
     @Override
     public int hashCode() {
         int hashCode = tariffication.hashCode();
-
         long bits = Double.doubleToLongBits(connectionPrice);
-
         hashCode = 31 * hashCode + (int) (bits ^ (bits >>> 32));
-
         return hashCode;
     }
 

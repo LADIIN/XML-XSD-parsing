@@ -34,7 +34,6 @@ public class TariffHandler extends DefaultHandler {
         if (phoneTariffTag.equals(qName) || internetTariffTag.equals(qName)) {
             currentTariff = phoneTariffTag.equals(qName) ? new PhoneTariff() : new InternetTariff();
             defineAttributes(attributes);
-
         } else {
             TariffXmlTag current = TariffXmlTag.valueOfXmlTag(qName);
 

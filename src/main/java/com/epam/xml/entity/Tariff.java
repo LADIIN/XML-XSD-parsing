@@ -65,10 +65,8 @@ public abstract class Tariff {
 
         result = prime * result + ((id == null) ? 0 : id.hashCode());
         result = prime * result + ((name == null) ? 0 : name.hashCode());
-
         long bits = Double.doubleToLongBits(payroll);
         result = prime * result + (int) (bits ^ (bits >>> 32));
-
         result = prime * result + ((parameters == null) ? 0 : parameters.hashCode());
 
         return result;

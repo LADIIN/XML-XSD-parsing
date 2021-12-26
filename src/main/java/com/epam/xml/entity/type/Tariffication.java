@@ -27,7 +27,6 @@ public enum Tariffication {
         return value;
     }
 
-
     public static Tariffication findByValue(String value) {
         EnumSet<Tariffication> tariffications = EnumSet.allOf(Tariffication.class);
 
