@@ -45,10 +45,8 @@ public class InternetTariff extends Tariff {
 
     @Override
     public String toString() {
-        return "InternetTariff{" + super.toString() +
-                "downloadSpeed=" + downloadSpeed +
-                ", uploadSpeed=" + uploadSpeed +
-                '}';
+        return String.format("PhoneTariff:%sCallPrice = %f\nSmsPrice = %f", super.toString(),
+                downloadSpeed, uploadSpeed);
     }
 
     @Override

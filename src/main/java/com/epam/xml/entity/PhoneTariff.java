@@ -67,10 +67,7 @@ public class PhoneTariff extends Tariff {
 
     @Override
     public String toString() {
-        return "PhoneTariff{" + super.toString() +
-                "callPrice=" + callPrice +
-                ", smsPrice=" + smsPrice +
-                '}';
+        return String.format("PhoneTariff:%sCallPrice = %s\nSmsPrice = %s", super.toString(), callPrice, smsPrice);
     }
 
 
