@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.javacourse.by/tariff"
+        xmlns:c="http://www.javacourse.by/tariff"
+        elementFormDefault="qualified">
+
+    <element name="tariff" type="c:tariff" abstract="true"/>
+    <element name="phone-tariff" type="c:phone-tariff" substitutionGroup="c:tariff"/>
+    <element name="internet-tariff" type="c:internet-tariff" substitutionGroup="c:tariff"/>
+
+    <element name="tariffs">
+        <complexType>
+            <sequence>
+                <element ref="c:tariff" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+
+    <complexType name="tariff">
+        <sequence>
+            <element name="name" type="string"/>
+            <element name="operator" type="c:operator"/>
+            <element name="payroll" type="c:nonNegativeDouble"/>
+            <element name="parameters" type="c:parameters"/>
+        </sequence>
+
+        <attribute name="id" type="c:tariff-id" use="required"/>
+        <attribute name="available" type="boolean" use="optional" default="true"/>
+    </complexType>
+
+    <complexType name="phone-tariff">
+        <complexContent>
+            <extension base="c:tariff">
+                <sequence>
+                    <element name="call-price" type="c:call-price"/>
+                    <element name="sms-price" type="c:nonNegativeDouble"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="internet-tariff">
+        <complexContent>
+            <extension base="c:tariff">
+                <sequence>
+                    <element name="download-speed" type="c:nonNegativeDouble"/>
+                    <element name="upload-speed" type="c:nonNegativeDouble"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="parameters">
+        <sequence>
+            <element name="tariffication" type="c:tariffication"/>
+            <element name="connection-price" type="c:nonNegativeDouble"/>
+        </sequence>
+    </complexType>
+
+    <simpleType name="operator">
+        <restriction base="string">
+            <enumeration value="MTS"/>
+            <enumeration value="A1"/>
+            <enumeration value="LIFE"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="tariff-id">
+        <restriction base="ID">
+            <pattern value="\w{1,10}"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="call-price">
+        <sequence>
+            <element name="network-call-price" type="c:nonNegativeDouble"/>
+            <element name="roaming-call-price" type="c:nonNegativeDouble"/>
+        </sequence>
+    </complexType>
+
+    <simpleType name="nonNegativeDouble">
+        <restriction base="double">
+            <minInclusive value="0.0"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="tariffication">
+        <restriction base="string">
+            <enumeration value="12 seconds"/>
+            <enumeration value="1 minute"/>
+            <enumeration value="1 hour"/>
+        </restriction>
+    </simpleType>
+
+
+</schema>
